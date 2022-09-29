@@ -3,12 +3,9 @@ const main = () => {
   const renderGanresList = ganres => {
     const dropdown = document.querySelector('.header__menu .dropdown');
 
-    ganres.forEach(ganre => {
-      dropdown.insertAdjacentHTML('beforeend', `
-        <li><a href="./categories.html?ganre=${ganre}">${ganre}</a></li>      
-      `)
-    });
-    
+    ganres.forEach(ganre => dropdown.insertAdjacentHTML('beforeend', `
+      <li><a href="./categories.html?ganre=${ganre}">${ganre}</a></li>      
+    `));
   };
 
   const renderAnimeList = (array, ganres) => {
@@ -81,12 +78,14 @@ const main = () => {
   fetch('https://anime-app-web-default-rtdb.europe-west1.firebasedatabase.app/anime.json')
     .then(data => data.json())
     .then(res => {
+    
       const ganres = new Set();
       res.forEach(anime => ganres.add(anime.ganre));
-
+      // run all functions...
       renderTopAnime(res.sort((a, b) => a.views < b.views).slice(0, 5));
       renderAnimeList(res, ganres);
       renderGanresList(ganres);
+    
     });
 };
 

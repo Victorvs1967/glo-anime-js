@@ -81,7 +81,7 @@ const main = () => {
     
       const ganres = new Set();
       res.forEach(anime => ganres.add(anime.ganre));
-
+      // run all functions...
       renderTopAnime(res.sort((a, b) => a.views < b.views).slice(0, 5));
       renderAnimeList(res, ganres);
       renderGanresList(ganres);

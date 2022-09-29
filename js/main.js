@@ -78,12 +78,14 @@ const main = () => {
   fetch('https://anime-app-web-default-rtdb.europe-west1.firebasedatabase.app/anime.json')
     .then(data => data.json())
     .then(res => {
+    
       const ganres = new Set();
       res.forEach(anime => ganres.add(anime.ganre));
 
       renderTopAnime(res.sort((a, b) => a.views < b.views).slice(0, 5));
       renderAnimeList(res, ganres);
       renderGanresList(ganres);
+    
     });
 };
 

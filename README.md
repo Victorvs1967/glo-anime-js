@@ -7,5 +7,3 @@
 ### learning project
 
 Very good...
-
-NEW LINE IN README

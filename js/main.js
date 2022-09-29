@@ -3,12 +3,9 @@ const main = () => {
   const renderGanresList = ganres => {
     const dropdown = document.querySelector('.header__menu .dropdown');
 
-    ganres.forEach(ganre => {
-      dropdown.insertAdjacentHTML('beforeend', `
-        <li><a href="./categories.html?ganre=${ganre}">${ganre}</a></li>      
-      `)
-    });
-    
+    ganres.forEach(ganre => dropdown.insertAdjacentHTML('beforeend', `
+      <li><a href="./categories.html?ganre=${ganre}">${ganre}</a></li>      
+    `));
   };
 
   const renderAnimeList = (array, ganres) => {
